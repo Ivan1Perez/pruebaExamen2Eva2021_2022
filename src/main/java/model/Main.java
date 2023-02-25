@@ -41,6 +41,11 @@ public class Main {
 
         Map<Integer, Producto> mapa = crearMapa((List<Producto>) list);
 
+        System.out.println(mapa);
+        System.out.println();
+
+        System.out.println(prodCarnicosPorPrecio(mapa));
+
     }
 
     //d. Crea un método que reciba una lista de productos y devuelva un Map donde la K es el código de producto y
@@ -58,17 +63,45 @@ public class Main {
 
     //    (1p) A partir del Map<K,V> con la estructura del ejercicio anterior, obtén una lista con los productos cárnicos ordenados por precio.
 
-    public static List<Producto> prodCarnicosOrdenadosPorPrecio(Map<Integer, Producto> mapaProductos) {
-        List<Producto> productosCarnicos = new ArrayList<>();
+    public static List<Producto> prodCarnicosPorPrecio(Map<Integer, Producto> mapaProductos){
+        List<Producto> prodCarnicos = new ArrayList<>();
 
-        // Recorrer todos los productos del mapa y añadir los productos cárnicos a la lista
-        productosCarnicos.addAll(mapaProductos.values());
+        for(Producto producto : mapaProductos.values()){
+            if(producto instanceof Carnico)
+                prodCarnicos.add(producto);
+        }
 
-        // Ordenar la lista de productos cárnicos por precio
-        Collections.sort(productosCarnicos, Comparator.comparing(Producto::getPrecio));
+        Collections.sort(prodCarnicos, (o1, o2) -> (int) (o2.getPrecio() - o1.getPrecio()));
 
-        return productosCarnicos;
+        return prodCarnicos;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+//    public static List<Producto> prodCarnicosOrdenadosPorPrecio(Map<Integer, Producto> mapaProductos) {
+//        List<Producto> productosCarnicos = new ArrayList<>();
+//
+//        // Recorrer todos los productos del mapa y añadir los productos cárnicos a la lista
+//        for (Producto producto : mapaProductos.values()) {
+//            if (producto instanceof Carnico) {
+//                productosCarnicos.add(producto);
+//            }
+//        }
+//
+//        // Ordenar la lista de productos cárnicos por precio
+//        Collections.sort(productosCarnicos, (o1, o2) -> (int) (o2.getPrecio() - o1.getPrecio()));
+//
+//        return productosCarnicos;
+//    }
 
 
 

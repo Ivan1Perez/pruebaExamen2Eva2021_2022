@@ -28,4 +28,8 @@ public class Carnico extends Producto{
                 "\nPeso: " + peso + "kg";
     }
 
+    @Override
+    public double getPrecio() {
+        return 0;
+    }
 }
