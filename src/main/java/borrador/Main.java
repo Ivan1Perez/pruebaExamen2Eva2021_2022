@@ -43,6 +43,9 @@ public class Main {
 
         Map<Integer, Producto> mapa = crearMapa(productos);
 
+        System.out.println();
+        System.out.println();
+
         System.out.println(obtenerProdCarnicosPorPrecio(mapa));
 
 
@@ -55,11 +58,12 @@ public class Main {
     public static Map<Integer, Producto> crearMapa(GenericList<Producto> listaProductosInicial){
         List<Producto> listaProductosFinal = new ArrayList<>();
         GenericList<Producto> aux = listaProductosInicial;
+        int size = listaProductosInicial.size();
 
-        for(int i = 0 ; i < aux.size() ; i++){
+        for(int i = 0 ; i < size ; i++){
             listaProductosFinal.add(aux.remove(0));
         }
-        System.out.println(listaProductosFinal);
+//        System.out.println(listaProductosFinal);
 
         Map<Integer, Producto> mapa = new HashMap<>();
 
@@ -82,7 +86,7 @@ public class Main {
             }
         }
 
-        Collections.sort(prodCarnicos, ((o1, o2) -> (int) (o2.getPrecio()-o1.getPrecio())));
+        Collections.sort(prodCarnicos, ((o1, o2) -> Double.compare(o2.getPrecio(),o1.getPrecio())));
 
         return prodCarnicos;
     }

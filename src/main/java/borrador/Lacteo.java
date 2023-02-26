@@ -46,7 +46,7 @@ e. Añade lo que consideres necesario.
     public String toString(){
         return "Nombre: " + getNombre() +
                 "\nCodigo: " + getCodigo() +
-                "\nPrecio por kilo: " + getPrecioPorKilo() + "€" +
+                "\nPrecio por kilo: " + getPrecio() + "€" +
                 "\nCapacidad: " + capacidad + "L\n";
     }
 }

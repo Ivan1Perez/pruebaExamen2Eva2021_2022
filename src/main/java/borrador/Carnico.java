@@ -56,7 +56,7 @@ public class Carnico extends Producto{
     public String toString(){
         return "Nombre: " + getNombre() +
                 "\nCodigo: " + getCodigo() +
-                "\nPrecio por kilo: " + getPrecioPorKilo() + "€" +
+                "\nPrecio por kilo: " + getPrecio() + "€" +
                 "\nTipo: " + tipo +
                 "\nPeso: " + peso + "kg\n";
     }
